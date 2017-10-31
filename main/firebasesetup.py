@@ -2,11 +2,6 @@ __author__ = 'mrs Ojoodide'
 
 import pyrebase
 config = {
-  # "apiKey": "AIzaSyDQB_RdFzfdFrezB4yVrkZS36U9GS0c71k",
-  # "authDomain": "you-track-f7ffb.firebaseapp.com",
-  # "databaseURL": "https://https://you-track-f7ffb.firebaseio.com/",
-  # "storageBucket": "you-track-f7ffb.appspot.com",
-  # "serviceAccount": "/Users/danijax/Documents/projects/Dara/You_Track/main/googleservices.json"
     "apiKey": "AIzaSyDQB_RdFzfdFrezB4yVrkZS36U9GS0c71k",
     "authDomain": "you-track-f7ffb.firebaseapp.com",
     "databaseURL": "https://you-track-f7ffb.firebaseio.com",
