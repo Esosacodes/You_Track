@@ -49,4 +49,4 @@ def sign_in(request):
         #         else render(request, 'Base/login.html', {'error_message': 'Account Disabled', 'form': form})
         # else:
         #     return render(request, 'Base/login.html', {'error_message': 'Invalid login', 'form': form})
-    return render(request, 'main/profile.html', {'form': form})
+    return render(request, 'main/login.html', {'form': form})
