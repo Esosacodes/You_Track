@@ -1,0 +1,28 @@
+{% extends 'main/index.html' %}
+{% block title %}Login{% endblock %}
+{% load staticfiles %}
+
+{% block body %}
+   <!-- Page Content -->
+    <div class="container container-fluid login">
+        <form method="POST" class="form-group" action="" enctype="multipart/form-data">
+           {% csrf_token %}
+           {% for field in form %}
+               {% if field.name == "username" %}
+                   <div class="form-group">
+                        <label for="{{ field.name}}"><span class="glyphicon glyphicon-user"></span> Username: </label>
+                        <input type="text" placeholder = "Enter username" id="{{ field.name}}" name="{{ field.name}}" class="form-control">
+                   </div>
+                   {% endif %}
+               {% if field.name == "password" %}
+                   <div class="form-group">
+                        <label for="{{ field.name}}"><span class="glyphicon glyphicon-lock"></span> Password: </label>
+                        <input type="password" placeholder = "Enter password"  id="{{ field.name}}" name="{{ field.name}}" class="form-control"><br/>
+                   </div>
+               {% endif %}
+           {% endfor %}
+            <br/><button type="submit" class="save btn btn-success">Log in</button>
+        <p id="register_message">Don't have login details yet? <a href="{% url 'register' %}">Register here</a></p>
+        </form>
+    </div>
+{% endblock %}

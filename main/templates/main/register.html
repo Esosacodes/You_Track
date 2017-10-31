@@ -1,0 +1,49 @@
+{% extends 'Base/base.html' %}
+{% block title %}Register{% endblock %}
+{% load staticfiles %}
+
+{% block body %}
+   <!-- Page Content -->
+    <div class="container container-fluid register">
+        <form method="POST" class="form-group" action="" enctype="multipart/form-data">
+           {% csrf_token %}
+           {% for field in form1 %}
+               {% if field.name == "username" %}
+                   <div class="form-group">
+                        <label for="{{ field.name}}"><span class="glyphicon glyphicon-user"></span> Username: </label>
+                        <input type="text" placeholder = "Enter preferred username" id="{{ field.name}}" name="{{ field.name}}" class="form-control">
+                   </div>
+                   {% endif %}
+
+               {% if field.name == "first_name" %}
+                   <div class="form-group">
+                        <label for="{{ field.name}}"> First Name: </label>
+                        <input type="text" placeholder = "Enter your first name" id="{{ field.name}}" name="{{ field.name}}" class="form-control">
+                   </div>
+                   {% endif %}
+
+               {% if field.name == "last_name" %}
+                   <div class="form-group">
+                        <label for="{{ field.name}}"> Last Name: </label>
+                        <input type="text" placeholder = "Enter your last name" id="{{ field.name}}" name="{{ field.name}}" class="form-control">
+                   </div>
+                   {% endif %}
+
+               {% if field.name == "email" %}
+                   <div class="form-group">
+                        <label for="{{ field.name}}"><span class="glyphicon glyphicon-user"></span> Email: </label>
+                        <input type="email" placeholder = "Enter your ipNX email" id="{{ field.name}}" name="{{ field.name}}" class="form-control">
+                   </div>
+                   {% endif %}
+               {% if field.name == "password" %}
+                   <div class="form-group">
+                        <label for="{{ field.name}}"><span class="glyphicon glyphicon-lock"></span> Password (made visible to allow you confirm): </label>
+                        <input type="text" placeholder = "Enter preffered password"  id="{{ field.name}}" name="{{ field.name}}" class="form-control"><br/>
+                   </div>
+               {% endif %}
+           {% endfor %}
+            <br/><button type="submit" class="save btn btn-success">Register</button>
+        <p id="register_message">Already have login details? <a href="{% url 'signin' %}">Login here</a></p>
+        </form>
+    </div>
+{% endblock %}

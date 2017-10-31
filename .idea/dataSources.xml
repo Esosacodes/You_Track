@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3345528244">
+    <data-source source="LOCAL" name="Django default" uuid="96498e25-7eb4-4a3a-b63c-27b8af2f976f">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\mrs Ojoodide\Desktop\Projectwork\You_Track\db.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Django default2" uuid="7601ee17-abe8-4f57-b8bc-1aa50bc3d3e5">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\mrs Ojoodide\Desktop\Projectwork\You_Track\db.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
