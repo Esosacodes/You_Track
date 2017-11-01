@@ -5,6 +5,9 @@ from django.views import generic
 from django.views.generic import View
 from .forms import UserForm
 from .firebasesetup import auth, db
+import logging
+
+logger = logging.getLogger('you_track_logs')
 
 form = UserForm
 
@@ -29,11 +32,13 @@ def sign_in(request):
         # Keep the user's username and power for verification
         username = request.POST['username']
         password = request.POST['password']
-
+        logger.info(username)
         # Authenticate the user
         user = auth.sign_in_with_email_and_password(username=username, password=password)
+        logger.info(user)
+        firebaseUser = db.child("users")
 
-        #firebaseUser = db.
+
 
 
 

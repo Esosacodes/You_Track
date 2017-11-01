@@ -7,5 +7,5 @@ urlpatterns = [
       # URL for the index page in which you sign-in
 
     # URL for logging the user in
-    url(r'^profile', views.sign_in, name='signin'),
+    url(r'^profile', views.sign_in, name='sign_in'),
 ]
