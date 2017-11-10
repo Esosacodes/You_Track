@@ -22,7 +22,7 @@
                         <label for="password"><span class="glyphicon glyphicon-lock"></span> Password: </label>
                         <input type="password" placeholder = "Enter password"  id="password" name="password" class="form-control"><br/>
                    </div>
-            <br/><button type="submit" class="save btn btn-success">Log in</button>
+            <br/><button type="submit" class="save btn btn-success" href="{% url 'sign_in'%}">>Log in</button>
         </form>
     </div>
 {% endblock %}

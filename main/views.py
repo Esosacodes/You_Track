@@ -10,6 +10,9 @@ from requests.exceptions import HTTPError
 
 from .forms import UserForm
 from .firebasesetup import auth, db
+import logging
+
+logger = logging.getLogger('you_track_logs')
 
 
 form = UserForm
@@ -39,7 +42,7 @@ def sign_in(request):
         # Keep the user's username and power for verification
         username = request.POST['username']
         password = request.POST['password']
-
+        logger.info(username)
         # Authenticate the user
         try:
             user = auth.sign_in_with_email_and_password(username, password)
@@ -52,9 +55,6 @@ def sign_in(request):
         except HTTPError as exc:
             messages.add_message(request, messages.INFO, json.loads(exc.strerror)['error']['message'])
             return redirect('index')
-        #firebaseUser = db.
-
-
 
         # If the user exists in our database
         # if user is not None:
