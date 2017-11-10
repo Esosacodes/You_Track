@@ -19,3 +19,7 @@
     width: 30%;
     height: 20%;
 }
+
+.error_messages{
+    color: red
+}
