@@ -46,8 +46,8 @@ def sign_in(request):
             print(user, flush=True)
             # call func assign
             id = user['localId']
-            user2 = getUserData(id)
-            print(user2, flush=True)
+            # user2 = getUserData(id)
+            # print(user2, flush=True)
             return render(request, 'main/profile.html', {'form': form})
         except HTTPError as exc:
             messages.add_message(request, messages.INFO, json.loads(exc.strerror)['error']['message'])
