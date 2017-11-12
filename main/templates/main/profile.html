@@ -56,12 +56,13 @@
         <th>Date</th>
         <th>Longitude</th>
         <th>Latitude</th>
+        <th>Address</th>
       </tr>
     </thead>
     <tbody>
     {% for location in userLocations %}
     {% if location %}
-        <tr><td>{{ location.id }}</td><td>{{ location.dateTime }}</td><td>{{ location.longitude }}</td> <td>{{ location.latitude }}</td><td><a href="#"> View in map</a></td>/tr>
+        <tr><td>{{ location.id }}</td><td>{{ location.dateTime }}</td><td>{{ location.longitude }}</td> <td>{{ location.latitude }}</td><td>{{ location.address }}</td> <td><a href="#"> View in map</a></td></tr>
     {% endif %}
 {% endfor %}
   </table>
