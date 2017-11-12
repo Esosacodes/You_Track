@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'main/index.html' %}
+{% block title %}Location{% endblock %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block body %}
+   <!-- Page Content -->
+    <div class="container container-fluid login">
+        <form method="POST" class="form-group" action="{% url 'signin' %}" >
+           {% csrf_token %}
+                   <div class="form-group">
+                        {% if messages %}
+                        <ul class="error">
+                            {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        <label for="username"><span class="glyphicon glyphicon-user"></span> Username: </label>
+                        <input type="text" placeholder = "Enter username" id="username" name="username" class="form-control">
+                   </div>
+                   <div class="form-group">
+                        <label for="password"><span class="glyphicon glyphicon-lock"></span> Password: </label>
+                        <input type="password" placeholder = "Enter password"  id="password" name="password" class="form-control"><br/>
+                   </div>
+            <br/><button type="submit" class="save btn btn-success">Log in</button>
+        </form>
+    </div>
+{% endblock %}

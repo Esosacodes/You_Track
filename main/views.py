@@ -42,19 +42,32 @@ def sign_in(request):
         # Keep the user's username and power for verification
         username = request.POST['username']
         password = request.POST['password']
-        logger.info(username)
+        print(username, " ", password, flush=True)
         # Authenticate the user
         try:
             user = auth.sign_in_with_email_and_password(username, password)
             print(user, flush=True)
-            # call func assign
-            id = user['localId']
-            # user2 = getUserData(id)
-            # print(user2, flush=True)
-            return render(request, 'main/profile.html', {'form': form})
+            id = user.get("localId", "")
+
+            data = db.child("users").child(id).get().val()
+            fname = data.popitem(last=False)
+            locations = None
+            for key, value in data.items():
+                if key == 'location':
+                    locations = value
+            
+            userLocations = []
+            for key, value in locations.items():
+                userLocations.append(value)
+            return render(request, 'main/profile.html', {'form': form, 'name':fname[1], 'userLocations': userLocations})
         except HTTPError as exc:
             messages.add_message(request, messages.INFO, json.loads(exc.strerror)['error']['message'])
             return redirect('index')
+
+def show_location_on_map(request):
+        longitude = 6.43545
+        latitude = 3.242455
+        return render(request, 'main/mapview.html', {'lon':longitude, 'lat':latitude})
 
         # If the user exists in our database
         # if user is not None:

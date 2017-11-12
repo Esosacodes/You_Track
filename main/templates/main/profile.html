@@ -37,16 +37,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-          <div class="form-group">
-              {% if messages %}
-              <ul class="error">
-                  {% for message in messages %}
-                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                  {% endfor %}
-              </ul>
-              {% endif %}
+        {% if name %}
+      <li><a href="#"> {{name}}</a></li>
+      {% endif %}
       </ul>
-    </div>
+      </div>
   </div>
 </nav>
   
@@ -58,23 +53,17 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>Firstname</th>
+        <th>Date</th>
+        <th>Longitude</th>
+        <th>Latitude</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="active">
-        <td>1</td>
-        <td>Anna</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Debbie</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>John</td>
-      </tr>
-    </tbody>
+    {% for location in userLocations %}
+    {% if location %}
+        <tr><td>{{ location.id }}</td><td>{{ location.dateTime }}</td><td>{{ location.longitude }}</td> <td>{{ location.latitude }}</td><td><a href="#"> View in map</a></td>/tr>
+    {% endif %}
+{% endfor %}
   </table>
 </div>
 
